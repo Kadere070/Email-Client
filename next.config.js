@@ -5,9 +5,6 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {
-    typecheck: {ignoreBuildErrors: true},
-    eslint: {ignoreDuringBuilds: true},
-};
+const config = {};
 
 export default config;

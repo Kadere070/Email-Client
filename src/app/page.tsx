@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
-
+import LinkAccountButton from "@/components/ui/link-account-button";
 
 export default async function Home() {
   return (
-    <Button>Hello world</Button>
+    <LinkAccountButton />
   )
 }
