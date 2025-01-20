@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
-import { NavItems } from '../config';
+import { NavItems } from './config';
 import { Menu } from 'lucide-react';
 import { AccountSwitcher } from "@/app/mail/account-switcher"
 

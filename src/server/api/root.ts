@@ -9,7 +9,10 @@ import { mailRouter } from "./routers/account";
  */
 export const appRouter = createTRPCRouter({
   post: postRouter,
-  account: mailRouter
+  account: mailRouter,
+  mail: mailRouter
+  //search: searchRouter,
+  //webhooks: webhooksRouter
 });
 
 // export type definition of API

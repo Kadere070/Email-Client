@@ -1,4 +1,4 @@
-//import EmailEditor from "./email-editor";
+import EmailEditor from "./email-editor/email-editor";
 import {
   Archive,
   ArchiveX,
@@ -48,7 +48,7 @@ import { useAtom } from "jotai";
 import { isSearchingAtom, searchValueAtom } from "./search-bar";
 import SearchDisplay from "./search-display";
 import { useLocalStorage } from "usehooks-ts";
-//import ReplyBox from "./reply-box";
+import ReplyBox from "./reply-box";
 
 
 export function ThreadDisplay() {

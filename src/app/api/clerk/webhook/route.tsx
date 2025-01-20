@@ -11,14 +11,15 @@ export const POST = async (req: Request) => {
 
     await db.user.upsert({
         where: {id},
-        update: {emailAddress,
+        update: {
+             email:emailAddress,
              firstName,
              lastName,
              id,
             imageUrl},
         create: {
             id, 
-            emailAddress, 
+            email:emailAddress, 
             firstName, 
             lastName, 
             imageUrl

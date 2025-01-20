@@ -9,7 +9,7 @@ import { Tabs } from "@radix-ui/react-tabs";
 import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountSwitcher } from "@/app/mail/account-switcher"
 import SideBar from "./sidebar"
-import ThreadList from "./thread-list";
+import {ThreadList} from "./thread-list";
 import { ThreadDisplay } from "./thread-display";
 import SearchBar from "./search-bar";
 

@@ -1,4 +1,4 @@
-import type { SyncUpdatedResponse, EmailMessage, EmailAddress, EmailAttachment, EmailHeader } from '@/types';
+import type { SyncUpdatedResponse, EmailMessage, EmailAddress, EmailAttachment, EmailHeader } from '@/lib/types';
 import pLimit from 'p-limit';
 import { Prisma } from '@prisma/client';
 import { db } from '@/server/db';

@@ -1,6 +1,7 @@
 'use client'
+
 import React from 'react'
-import EmailEditor from './email-editor'
+import EmailEditor from './email-editor/email-editor'
 import { useThread } from './use-thread'
 import useThreads from './use-threads'
 import { api, type RouterOutputs } from '@/trpc/react'
@@ -25,8 +26,18 @@ const Component = ({ replyDetails }: { replyDetails: NonNullable<RouterOutputs['
 
     const [subject, setSubject] = React.useState(replyDetails.subject.startsWith('Re:') ? replyDetails.subject : `Re: ${replyDetails.subject}`);
 
-    const [toValues, setToValues] = React.useState<{ label: string, value: string }[]>(replyDetails.to.map(to => ({ label: to.address ?? to.name, value: to.address })) || [])
-    const [ccValues, setCcValues] = React.useState<{ label: string, value: string }[]>(replyDetails.cc.map(cc => ({ label: cc.address ?? cc.name, value: cc.address })) || [])
+    const [toValues, setToValues] = React.useState<{ 
+        label: string, value: string 
+    }[]>(replyDetails.to.map((to: any) => ({ 
+        label: to.address ?? to.name, 
+         value: to.address 
+        })) || [])
+    const [ccValues, setCcValues] = React.useState<{ 
+        label: string, value: string 
+    }[]>(replyDetails.cc.map((cc: any)=> ({
+         label: cc.address ??  cc.name, 
+         value: cc.address
+         })) || [])
 
     const sendEmail = api.account.sendEmail.useMutation()
     React.useEffect(() => {
@@ -35,8 +46,14 @@ const Component = ({ replyDetails }: { replyDetails: NonNullable<RouterOutputs['
         if (!replyDetails.subject.startsWith('Re:')) {
             setSubject(`Re: ${replyDetails.subject}`)
         }
-        setToValues(replyDetails.to.map(to => ({ label: to.address ?? to.name, value: to.address })))
-        setCcValues(replyDetails.cc.map(cc => ({ label: cc.address ?? cc.name, value: cc.address })))
+        setToValues(replyDetails.to.map((to: any) => ({
+            label: to.address ?? to.name,
+            value: to.address
+        })))
+        setCcValues(replyDetails.cc.map((cc: any) => ({
+            label: cc.address ?? cc.name,
+            value: cc.address
+        })))
 
     }, [replyDetails, threadId])
 
@@ -48,8 +65,14 @@ const Component = ({ replyDetails }: { replyDetails: NonNullable<RouterOutputs['
             body: value,
             subject,
             from: replyDetails.from,
-            to: replyDetails.to.map(to => ({ name: to.name ?? to.address, address: to.address })),
-            cc: replyDetails.cc.map(cc => ({ name: cc.name ?? cc.address, address: cc.address })),
+            to: replyDetails.to.map((to: any) => ({
+                 name: to.name ?? to.address, 
+                 address: to.address
+                 })),
+            cc: replyDetails.cc.map((cc: any) => ({
+                 name: cc.name ?? cc.address, 
+                 address: cc.address 
+                })),
             replyTo: replyDetails.from,
             inReplyTo: replyDetails.id,
         }, {
