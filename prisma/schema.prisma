@@ -15,7 +15,7 @@ model User {
     email       String      @unique
     firstName   String
     lastName    String
-    imageUrl       String?
+    imageUrl    String?
     accounts    Account[]
 
 }   

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import Link from 'next/link';
-
+import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -22,6 +22,7 @@ import { AccountSwitcher } from "@/app/mail/account-switcher"
 export default function Header() {
   const navItems = NavItems();
   const [isOpen, setIsOpen] = useState(false);
+  const [isCollapsed] = React.useState(false)
 
   return (
     <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 justify-between">
@@ -78,6 +79,16 @@ export default function Header() {
             
 
             </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+            className={cn (isCollapsed && ("min-w-[50px] transition-all duration-300 ease-in-out"))}
+                    <div className="flex flex-col h-full flex-1"> 
+                        <div className={cn("flex h-[52px] items-center justify between", isCollapsed? 'h-[52px]': 'h-[52px]')}>
+                            {/*Account Switcher*/}
+                            <AccountSwitcher isCollapsed={isCollapsed} />
+                        </div> 
+                    </div>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />

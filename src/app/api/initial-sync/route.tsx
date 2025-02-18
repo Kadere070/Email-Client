@@ -1,6 +1,6 @@
 //api/initial-sync
 
-import { Account } from "@/lib/account";
+import  Account  from "@/lib/account";
 import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
 import { syncEmailsToDatabase } from "@/lib/sync-to-db";

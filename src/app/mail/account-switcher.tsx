@@ -39,7 +39,7 @@ export function AccountSwitcher({
         },
       })
     }
-  }, [accounts])
+  }, [accounts,accountId, setAccountId])
 
 
 
