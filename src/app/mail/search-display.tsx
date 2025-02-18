@@ -16,7 +16,6 @@ const SearchDisplay = () => {
     const [isSearching, setIsSearching] = useAtom(isSearchingAtom)
     const [_, setThreadId] = useThread()
     const search = api.search.search.useMutation()
-
     const [debouncedSearch] = useDebounceValue(searchValue, 500)
     const [accountId, setAccountId] = useLocalStorage('accountId', '')
 
